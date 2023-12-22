@@ -1,0 +1,63 @@
+.body-container {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    gap: 50px;
+}
+
+.title {
+    display: flex;
+    width: 50vw;
+    height: 10vh;
+    font-weight: bold;
+    font-size: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.upload-image-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border-style: dotted;
+    color: rgb(102, 167, 102);
+    width: 700px;
+    height: 225px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.upload-button {
+    width: 230px;
+    height: 50px;
+    background: green;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    height: 20vh;
+    justify-content: left;
+    gap: 25px;
+}
+.language-module {
+    width: 175px;
+    height: 40px;
+    background: lightskyblue;
+}
+
+.colour-module {
+    width: 175px;
+    height: 40px;
+    background: lightskyblue;
+}
+
+.custom-link {
+    text-decoration: underline;
+    font-weight: bold;
+}
