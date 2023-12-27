@@ -39,8 +39,8 @@
 
 .button-container {
     display: flex;
-    flex-direction: column;
-    width: 1200px;
+    flex-direction: row;
+    width: 70vw;
     height: 20vh;
     justify-content: left;
     gap: 25px;

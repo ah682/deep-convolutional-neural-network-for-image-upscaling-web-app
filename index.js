@@ -1,35 +1,11 @@
-// HTML input element for image upload
-const imageInput = document.getElementById("imageInput");
-
-// Function to handle the image upload
-imageInput.addEventListener("change", function (event) {
-  const file = event.target.files[0];
-  upscaleImage(file);
+document.querySelector('.upload-button').addEventListener('click', function() {
+  document.getElementById('hiddenFileInput').click();
 });
 
-// Function to upscale an image
-async function upscaleImage(imageFile) {
-  // Convert the image file to a format suitable for processing (e.g., a tensor)
-  const tensor = await fileToTensor(imageFile);
-
-  // Perform upscaling using a client-side library like TensorFlow.js
-  const upscaledTensor = await upscaleTensor(tensor);
-
-  // Convert the upscaled tensor back to an image and display it
-  const upscaledImage = await tensorToImage(upscaledTensor);
-  displayImage(upscaledImage);
-}
-
-// Utility functions (to be implemented)
-async function fileToTensor(file) {
-  /* Convert file to tensor */
-}
-async function upscaleTensor(tensor) {
-  /* Upscale tensor */
-}
-async function tensorToImage(tensor) {
-  /* Convert tensor to image */
-}
-function displayImage(image) {
-  /* Display image on the webpage */
+function handleFileUpload(input) {
+  if (input.files && input.files[0]) {
+      // Handle the file upload here, e.g., display the file name or upload it
+      console.log("File Uploaded: ", input.files[0].name);
+      // Additional actions upon file selection
+  }
 }
