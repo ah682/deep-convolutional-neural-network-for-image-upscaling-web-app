@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+
 .body-container {
     display: flex;
     flex-direction: column;
@@ -63,10 +65,6 @@
 }
 
 .dyslexia-mode {
-    font-family: 'OpenDyslexic', Arial, sans-serif; /* Example of a dyslexia-friendly font */
-    background-color: #F8F8F8; /* Softer color for the background */
-    color: #404040; /* Softer color for the text */
-    line-height: 1.5; /* Increase line spacing */
-    /* Add other styles as needed */
+    font-family: 'Open-Dyslexic', sans-serif;
 }
 
