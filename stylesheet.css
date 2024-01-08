@@ -68,3 +68,132 @@
     font-family: 'Open-Dyslexic', sans-serif;
 }
 
+/* Define your colorblind modes with appropriate color schemes */
+.no-color-blindness {
+    background-color: #eaeaea;
+    color: initial;
+}
+
+.no-color-blindness .upload-button {
+    background-color: #007bff; /* Standard Bootstrap blue */
+    color: white;
+}
+
+.no-color-blindness #dyslexiaAssistButton {
+    background-color: #6c757d; /* Standard Bootstrap secondary */
+    color: white;
+}
+
+.no-color-blindness .colour-module {
+    background-color: #28a745; /* Standard Bootstrap green */
+    color: white;
+}
+
+.no-color-blindness .upload-image-container {
+    border-color: rgb(102, 167, 102); /* Original green */
+}
+
+
+.deuteranopia .upload-button {
+    background-color: #0056b3; /* Darker blue */
+    color: #ffff33; /* Yellow text */
+}
+
+.deuteranopia #dyslexiaAssistButton {
+    background-color: #004085; /* Even darker blue */
+    color: #ffff33;
+}
+
+.deuteranopia .colour-module {
+    background-color: #ffff33; /* Yellow */
+    color: #0056b3; /* Blue text */
+}
+
+.deuteranopia .upload-image-container {
+    border-color: rgb(0, 123, 255); /* Blue */
+}
+
+
+.deuteranopia {
+     color: #000066; /* Dark blue for text */
+     background: #FFFF99; /* Light yellow for background */
+}
+
+.protanopia .upload-button {
+    background-color: #0056b3;
+    color: #ffff33;
+}
+
+.protanopia #dyslexiaAssistButton {
+    background-color: #004085;
+    color: #ffff33;
+}
+
+.protanopia .colour-module {
+    background-color: #ffff33;
+    color: #0056b3;
+}
+
+.protanopia .upload-image-container {
+    border-color: rgb(0, 123, 255); /* Blue */
+}
+
+.protanopia {
+    /* Adjust colors for Protanopia */
+    color: #003366; /* Darker blue for text */
+    background: #FFFFCC; /* Pale yellow for background */
+}
+
+.tritanopia .upload-button {
+    background-color: #800080; /* Purple */
+    color: #00ff00; /* Lime text */
+}
+
+.tritanopia #dyslexiaAssistButton {
+    background-color: #993399; /* Lighter purple */
+    color: #00ff00;
+}
+
+.tritanopia .colour-module {
+    background-color: #00ff00; /* Lime */
+    color: #800080; /* Purple text */
+}
+
+.tritanopia .upload-image-container {
+    border-color: rgb(153, 51, 255); /* Purple */
+}
+
+
+.tritanopia {
+    /* Adjust colors for Tritanopia */
+    color: #990099; /* Purple for text */
+    background: #99FF99; /* Light green for background */
+}
+
+.monochromatism .upload-button {
+    background-color: black;
+    color: white;
+}
+
+.monochromatism #dyslexiaAssistButton {
+    background-color: #333333; /* Dark grey */
+    color: white;
+}
+
+.monochromatism .colour-module {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.monochromatism .upload-image-container {
+    border-color: rgb(64, 64, 64); /* Dark gray */
+}
+
+.monochromatism {
+    /* Grayscale for Monochromatism */
+    color: #FFFFFF; /* White for text */
+    background: #000000; /* Black for background */
+}
+
+
