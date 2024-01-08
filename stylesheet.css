@@ -97,6 +97,7 @@
 .deuteranopia .upload-button {
     background-color: #0056b3; /* Darker blue */
     color: #ffff33; /* Yellow text */
+    border-color: #2a4bd7;
 }
 
 .deuteranopia #dyslexiaAssistButton {
@@ -105,8 +106,8 @@
 }
 
 .deuteranopia .colour-module {
-    background-color: #ffff33; /* Yellow */
-    color: #0056b3; /* Blue text */
+    background-color: #004085; /* Even darker blue */
+    color: #ffff33;
 }
 
 .deuteranopia .upload-image-container {
@@ -119,19 +120,24 @@
      background: #FFFF99; /* Light yellow for background */
 }
 
+.deuteranopia .text-primary.my-custom-link {
+    color: #000066 !important; /* This pink/magenta color will be used */
+}
+
 .protanopia .upload-button {
     background-color: #0056b3;
     color: #ffff33;
+    border-color: #2d862d;
 }
 
-.protanopia #dyslexiaAssistButton {
+.protanopia #dyslexiaAssistButton  {
     background-color: #004085;
     color: #ffff33;
 }
 
 .protanopia .colour-module {
-    background-color: #ffff33;
-    color: #0056b3;
+    background-color: #004085;
+    color: #ffff33;
 }
 
 .protanopia .upload-image-container {
@@ -144,19 +150,26 @@
     background: #FFFFCC; /* Pale yellow for background */
 }
 
+.protanopia .text-primary.my-custom-link {
+    color: #003366 !important;
+}
+
 .tritanopia .upload-button {
     background-color: #800080; /* Purple */
     color: #00ff00; /* Lime text */
+    border-color: #ff00ff;
 }
 
 .tritanopia #dyslexiaAssistButton {
     background-color: #993399; /* Lighter purple */
     color: #00ff00;
+    border-color: #ff00ff;
 }
 
 .tritanopia .colour-module {
-    background-color: #00ff00; /* Lime */
-    color: #800080; /* Purple text */
+    background-color: #993399; /* Lighter purple */
+    color: #00ff00;
+    border-color: #ff00ff;
 }
 
 .tritanopia .upload-image-container {
@@ -170,9 +183,15 @@
     background: #99FF99; /* Light green for background */
 }
 
+.tritanopia .text-primary.my-custom-link {
+    color: #990099 !important;
+}
+
+
 .monochromatism .upload-button {
     background-color: black;
     color: white;
+    border-color: rgb(64, 64, 64);
 }
 
 .monochromatism #dyslexiaAssistButton {
@@ -181,9 +200,8 @@
 }
 
 .monochromatism .colour-module {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+    background-color: #333333; /* Dark grey */
+    color: white;
 }
 
 .monochromatism .upload-image-container {
@@ -195,5 +213,10 @@
     color: #FFFFFF; /* White for text */
     background: #000000; /* Black for background */
 }
+
+.monochromatism .text-primary.my-custom-link {
+    color: white !important;
+}
+
 
 
