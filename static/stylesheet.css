@@ -1,0 +1,259 @@
+@import url("https://fonts.cdnfonts.com/css/open-dyslexic");
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  gap: 50px;
+}
+
+.title {
+  display: flex;
+  width: 50vw;
+  height: 10vh;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.upload-image-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border-style: dotted;
+  color: rgb(102, 167, 102);
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.btn.btn-primary {
+  width: 230px;
+  height: 50px;
+  background: green;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  width: 70vw;
+  height: 20vh;
+  justify-content: center;
+  gap: 25px;
+}
+
+.language-module {
+  width: 175px;
+  background: lightskyblue;
+}
+
+.colour-module {
+  width: 175px;
+  background: lightskyblue;
+}
+
+.custom-link {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.dyslexia-mode {
+  font-family: "Open-Dyslexic", sans-serif;
+}
+
+/* Define your colorblind modes with appropriate color schemes */
+.no-color-blindness {
+  background-color: #eaeaea;
+  color: initial;
+}
+
+.no-color-blindness .btn.btn-primary {
+  background-color: green; /* Standard Bootstrap blue */
+  color: white;
+}
+
+.no-color-blindness #dyslexiaAssistButton {
+  background-color: lightblue; /* Standard Bootstrap secondary */
+  color: white;
+}
+
+.no-color-blindness .colour-module {
+  background-color: lightblue; /* Standard Bootstrap green */
+  color: white;
+}
+
+.no-color-blindness .upload-image-container {
+  border-color: rgb(102, 167, 102); /* Original green */
+}
+
+.deuteranopia .btn.btn-primary {
+  background-color: #0056b3; /* Darker blue */
+  color: #ffff33; /* Yellow text */
+  border-color: #2a4bd7;
+}
+
+.deuteranopia #dyslexiaAssistButton {
+  background-color: #004085; /* Even darker blue */
+  color: #ffff33;
+}
+
+.deuteranopia .colour-module {
+  background-color: #004085; /* Even darker blue */
+  color: #ffff33;
+}
+
+.deuteranopia .upload-image-container {
+  border-color: rgb(0, 123, 255); /* Blue */
+}
+
+.deuteranopia {
+  color: #000066; /* Dark blue for text */
+  background: #ffff99; /* Light yellow for background */
+}
+
+.deuteranopia .text-primary.my-custom-link {
+  color: #000066 !important; /* This pink/magenta color will be used */
+}
+
+.protanopia .btn.btn-primary {
+  background-color: #0056b3;
+  color: #ffff33;
+  border-color: #2d862d;
+}
+
+.protanopia #dyslexiaAssistButton {
+  background-color: #004085;
+  color: #ffff33;
+}
+
+.protanopia .colour-module {
+  background-color: #004085;
+  color: #ffff33;
+}
+
+.protanopia .upload-image-container {
+  border-color: rgb(0, 123, 255); /* Blue */
+}
+
+.protanopia {
+  /* Adjust colors for Protanopia */
+  color: #003366; /* Darker blue for text */
+  background: #ffffcc; /* Pale yellow for background */
+}
+
+.protanopia .text-primary.my-custom-link {
+  color: #003366 !important;
+}
+
+.tritanopia .btn.btn-primary {
+  background-color: #800080; /* Purple */
+  color: #00ff00; /* Lime text */
+  border-color: #ff00ff;
+}
+
+.tritanopia #dyslexiaAssistButton {
+  background-color: #993399; /* Lighter purple */
+  color: #00ff00;
+  border-color: #ff00ff;
+}
+
+.tritanopia .colour-module {
+  background-color: #993399; /* Lighter purple */
+  color: #00ff00;
+  border-color: #ff00ff;
+}
+
+.tritanopia .upload-image-container {
+  border-color: rgb(153, 51, 255); /* Purple */
+}
+
+.tritanopia {
+  /* Adjust colors for Tritanopia */
+  color: #990099; /* Purple for text */
+  background: #99ff99; /* Light green for background */
+}
+
+.tritanopia .text-primary.my-custom-link {
+  color: #990099 !important;
+}
+
+.monochromatism .btn.btn-primary {
+  background-color: black;
+  color: white;
+  border-color: rgb(64, 64, 64);
+}
+
+.monochromatism #dyslexiaAssistButton {
+  background-color: #333333; /* Dark grey */
+  color: white;
+}
+
+.monochromatism .colour-module {
+  background-color: #333333; /* Dark grey */
+  color: white;
+}
+
+.monochromatism .upload-image-container {
+  border-color: rgb(64, 64, 64); /* Dark gray */
+}
+
+.monochromatism {
+  /* Grayscale for Monochromatism */
+  color: #ffffff; /* White for text */
+  background: #000000; /* Black for background */
+}
+
+.monochromatism .text-primary.my-custom-link {
+  color: white !important;
+}
+
+.btn.btn-info {
+  background: #0000cc;
+  color: #ffffff;
+  border-color: #0000cc;
+}
+
+@media only screen and (max-width: 767px) {
+  .title {
+    font-size: 1.2rem;
+  }
+  .upload-image-container {
+    width: 425px;
+    height: 500px;
+  }
+  .text-primary.my-custom-link {
+    width: 200px;
+  }
+  .language-module {
+    height: 70px;
+  }
+  .colour-module {
+    height: 70px;
+  }
+}
+
+@media only screen and (max-width: 351px) {
+  .title {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .upload-image-container {
+    width: 700px;
+    height: 350px;
+  }
+  .language-module {
+    height: 40px;
+  }
+
+  .colour-module {
+    height: 40px;
+  }
+}

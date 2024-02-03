@@ -1,0 +1,9 @@
+torch
+torchvision
+torchaudio
+Flask
+scikit-learn
+numpy
+matplotlib
+gunicorn
+opencv-python

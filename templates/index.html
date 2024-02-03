@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.cdnfonts.com/css/open-dyslexic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='stylesheet.css') }}"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // Function to get a list of uploaded image filenames and display them
+  
+        function displayImages() {
+          // Make an AJAX request to get a list of uploaded image filenames
+          $.get('/get_images', function(data) {
+            // Parse the list of filenames from the server response
+            var filenames = JSON.parse(data);
+            
+            // For each filename, create a new img element and add it to the page
+            for (var i = 0; i < filenames.length; i++) {
+              var filename = filenames[i];
+              var img = $('<img>').attr('src', '/results/' + filename);
+              $('#image-container').append(img);
+            }
+          });
+        }
+        function displayUploadedImages() {
+          // Make an AJAX request to get a list of uploaded image filenames
+          $.get('/get_Uploaded_images', function(data) {
+            // Parse the list of filenames from the server response
+            var filenames = JSON.parse(data);
+            
+            // For each filename, create a new img element and add it to the page
+            for (var i = 0; i < filenames.length; i++) {
+              var filename = filenames[i];
+              var img = $('<img>').attr('src', '/uploads/' + filename);
+  
+              img.title = 'Uploaded Image';
+              $('#image-container').append(img);
+            }
+          });
+        }
+        
+        // Add a click event listener to the "Show Images" button
+        $('#show-images-btn').click(function() {
+          displayImages();
+          displayUploadedImages()
+        });
+      });
+    </script>
+    <style>
+      h1 {
+        text-align: center;
+      }
+
+      img {
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      body {
+        background: rgb(228, 228, 228);
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="body-container">
+       <h1 class="title">
+      AI Image Upscaling Using Super-Resolution Techniques Using Deep
+      Convolutional Neural Networks
+    </h1>
+    <h1 id="text-setter"></h1>
+    <title>Image Upscaling DCNN</title>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <!-- The input field of type file is hidden and will be triggered by the button below -->
+      <input
+        type="file"
+        id="hiddenFileInput"
+        name="file"
+        style="display: none"
+        onchange="document.getElementById('upload').click();"
+      />
+      <!-- The submit button is hidden -->
+      <input id="upload" type="submit" style="display: none" />
+
+      <!-- The visible button is styled as a Bootstrap button -->
+      <div class="upload-image-container">
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="document.getElementById('hiddenFileInput').click();"
+        >
+          Upload Image(s) <i class="fas fa-upload"></i>
+        </button>
+      </form>
+      
+        <div id="show-images-btn" class="btn btn-info">Show Image(s)</div>
+        <!-- Custom link for additional features -->
+        <a href="#" class="text-primary my-custom-link" style="text-align: center;">
+          Click "Upload Image(s)", then wait for the image to finish upscaling, then click "Show Image(s)".
+        </a>
+    
+      <!-- Script to handle the upload process -->
+      <script>
+        document
+          .getElementById("hiddenFileInput")
+          .addEventListener("change", function () {
+            // Set the text to indicate the image is being processed
+            // Ensure there is an element with id 'text-setter' to display this message
+            document.getElementById("text-setter").innerHTML =
+              "Upscaling Image...";
+          });
+      </script>
+    
+    <br />
+  </div>
+    <div class="button-container">
+      <button
+        id="dyslexiaAssistButton"
+        class="btn btn-secondary language-module"
+        onclick="activateDyslexiaAssist()"
+      >
+        Dyslexia Mode
+      </button>
+
+      <div class="dropdown">
+        <!-- Trigger -->
+        <button
+          class="btn btn-secondary dropdown-toggle colour-module"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Colourblind Mode
+        </button>
+
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick="setColorBlindMode('no-color-blindness')"
+              >No Colour Blindness</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick="setColorBlindMode('deuteranopia')"
+              >Deuteranopia</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick="setColorBlindMode('protanopia')"
+              >Protanopia</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick="setColorBlindMode('tritanopia')"
+              >Tritanopia</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              href="#"
+              onclick="setColorBlindMode('monochromatism')"
+              >Monochromatism</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="image-container"></div>
+    <script>
+      window.onload = function () {
+        // Check if the user arrived at this page via the back button
+        if (
+          window.performance &&
+          window.performance.navigation.type ===
+            window.performance.navigation.TYPE_BACK_FORWARD
+        ) {
+          // Update the text of the h1 element
+          document.getElementById("text-setter").textContent =
+            "Upscaling Complete";
+        }
+      };
+    </script>
+    <br />
+  </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+# folder
+.vscode
+
+# file type
+*.svg
+*.pyc
+*.t7
+*.caffemodel
+*.mat
+*.npy
+
