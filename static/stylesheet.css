@@ -92,17 +92,19 @@
 .deuteranopia .btn.btn-primary {
   background-color: #0056b3; /* Darker blue */
   color: #ffff33; /* Yellow text */
-  border-color: #2a4bd7;
+  border-color: #d1d12b;
 }
 
 .deuteranopia #dyslexiaAssistButton {
-  background-color: #004085; /* Even darker blue */
-  color: #ffff33;
+  background-color: #0056b3; /* Darker blue */
+  color: #ffff33; /* Yellow text */
+  border-color: #d1d12b;
 }
 
 .deuteranopia .colour-module {
-  background-color: #004085; /* Even darker blue */
-  color: #ffff33;
+  background-color: #0056b3; /* Darker blue */
+  color: #ffff33; /* Yellow text */
+  border-color: #d1d12b;
 }
 
 .deuteranopia .upload-image-container {
@@ -118,20 +120,34 @@
   color: #000066 !important; /* This pink/magenta color will be used */
 }
 
+.deuteranopia .btn.btn-info {
+  background-color: #0056b3; /* Darker blue */
+  color: #ffff33; /* Yellow text */
+  border-color: #d1d12b;
+}
+
 .protanopia .btn.btn-primary {
   background-color: #0056b3;
   color: #ffff33;
-  border-color: #2d862d;
+  border-color: #d1d12b;
+}
+
+.protanopia .btn.btn-info {
+  background-color: #0056b3;
+  color: #ffff33;
+  border-color: #d1d12b;
 }
 
 .protanopia #dyslexiaAssistButton {
-  background-color: #004085;
+  background-color: #0056b3;
   color: #ffff33;
+  border-color: #d1d12b;
 }
 
 .protanopia .colour-module {
-  background-color: #004085;
+  background-color: #0056b3;
   color: #ffff33;
+  border-color: #d1d12b;
 }
 
 .protanopia .upload-image-container {
@@ -180,10 +196,17 @@
   color: #990099 !important;
 }
 
+.tritanopia .btn.btn-info  {
+  background-color: #800080; /* Purple */
+  color: #00ff00; /* Lime text */
+  border-color: #ff00ff;
+}
+
 .monochromatism .btn.btn-primary {
-  background-color: black;
+  background-color: #333333; /* Dark grey */
   color: white;
-  border-color: rgb(64, 64, 64);
+  border-color:  #6c757d;
+  
 }
 
 .monochromatism #dyslexiaAssistButton {
@@ -208,6 +231,12 @@
 
 .monochromatism .text-primary.my-custom-link {
   color: white !important;
+}
+
+.monochromatism .btn.btn-info {
+  background-color: #333333; /* Dark grey */
+  color: white;
+  border-color:  #6c757d;
 }
 
 .btn.btn-info {
