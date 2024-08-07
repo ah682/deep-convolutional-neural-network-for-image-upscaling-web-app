@@ -106,12 +106,12 @@
 }
 
 .no-color-blindness #dyslexiaAssistButton {
-  background-color: lightblue; /* Standard Bootstrap secondary */
+  background-color: #87cefa; /* Standard Bootstrap secondary */
   color: white;
 }
 
 .no-color-blindness .colour-module {
-  background-color: lightblue; /* Standard Bootstrap green */
+  background-color: #87cefa; /* Standard Bootstrap green */
   color: white;
 }
 

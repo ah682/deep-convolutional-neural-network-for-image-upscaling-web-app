@@ -1,11 +1,11 @@
 function activateDyslexiaAssist() {
-  // Add code here to toggle dyslexia-friendly styles
   document.body.classList.toggle("dyslexia-mode");
-
-  // You can add more changes such as changing font, colors etc.
 }
 
-function setColorBlindMode(mode) {
+// Prevent the default anchor behavior
+function setColorBlindMode(mode, event) {
+  event.preventDefault();
+
   var bodyElement = document.body;
   // Clear all previous colorblind classes
   bodyElement.classList.remove(

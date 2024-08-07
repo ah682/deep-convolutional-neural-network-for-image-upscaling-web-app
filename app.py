@@ -80,7 +80,7 @@ def upload():
         cv2.imwrite('results/{:s}_rlt.png'.format(base), output)
         print("image upscaled")
     
-    return 'File uploaded and resolution increased successfully. Please go back to the landing page and click on Show image.', 200
+    return 'File uploaded and resolution increased successfully. Please go back to the landing page.', 200
 
 # Serve uploaded images
 @app.route('/get_Uploaded_images')
