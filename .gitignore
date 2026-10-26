@@ -9,3 +9,13 @@
 *.mat
 *.npy
 
+
+.venv/
+.cache/
+.pytest_cache/
+__pycache__/
+instance/
+uploads/
+results/
+
+.ruff_cache/
