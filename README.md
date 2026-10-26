@@ -1,13 +1,14 @@
-# Local ESRGAN image upscaler
+# ESRGAN Image Upscaler
 
-A legacy Flask integration of the pretrained ESRGAN/RRDB 4× model. Upload a small
-PNG, JPEG or WebP image, then open its generated result. The contribution here is
-the web integration; the model and architecture are upstream work. See
-[provenance and terms](PROVENANCE.md). No training or new model is included.
+A Flask web app for upscaling images with the pretrained ESRGAN/RRDB model.
+Upload a PNG, JPEG or WebP image and compare it with a result at four times the
+width and height. The model and architecture come from
+[Xintao Wang and collaborators' ESRGAN project](https://github.com/xinntao/ESRGAN);
+see [model provenance and terms](PROVENANCE.md) for the bundled files.
 
 ## Run locally
 
-The verified recipe uses **Python 3.12 on Linux x86_64**, CPU only:
+Use **Python 3.12 on Linux x86_64** for the pinned CPU environment:
 
 ```bash
 git clone https://github.com/ah682/deep-convolutional-neural-network-for-image-upscaling-web-app.git
@@ -18,10 +19,8 @@ python3.12 -m venv .venv
 ```
 
 Open `http://127.0.0.1:5000`. PyTorch is a large download; the CPU wheel comes from
-its [official index](https://pytorch.org/get-started/previous-versions/). The pinned
-dependency combination was verified from cached public packages; a fresh network installation
-and live browser workflow were not executed in the maintenance environment.
-The repository includes its original 67 MB checkpoint. Inference checks its
+its [official index](https://pytorch.org/get-started/previous-versions/).
+The repository includes the original 67 MB checkpoint. Inference checks its
 recorded checksum and loads tensor weights with `weights_only=True` on the CPU.
 
 ## Storage and limits
@@ -36,8 +35,8 @@ at a time and 32 retained jobs. Output is 4× per side. Extra multipart bytes an
 fields have separate request/form limits. Oversized inputs return 413; bad or
 truncated images return 400; concurrent inference returns 429; a missing/broken
 model or full job directory returns 503. Failed jobs are discarded independently.
-This bounds individual workloads; it is not a hard memory/CPU timeout or a
-hostile-decoder sandbox.
+These limits control input size and concurrency; decoding and inference still
+run in the application process without a hard memory limit or timeout.
 
 Set `UPSCALER_JOB_ROOT` before startup to choose another directory. To reclaim
 space, **stop the app**, then remove only unneeded generated job directories in
@@ -45,14 +44,13 @@ that root. An interrupted process can leave `.pending-*` directories; inspect
 and remove them while stopped. The application never globally clears files on
 page load. Old `uploads/` and `results/` folders are not imported or deleted.
 
-This remains a local single-user demo. Job URLs/listing have no authentication,
-all local users share retained jobs, and the lock/quota apply to one serving
-process. Use one process and loopback only. There is no production deployment,
-GPU validation, rate-limited shared hosting or perceptual-quality claim. The page
-still uses remote style/font assets; these are separate from local image inference.
-Generated textures may be wrong even when the image looks sharper.
+Run this as a single-user app on loopback with one serving process. Job URLs have
+no authentication, and the lock and storage quota apply to that process only.
+The page loads remote style/font assets; image inference runs locally on the CPU.
+ESRGAN can generate plausible but incorrect texture, so a sharper result should
+not be treated as recovered detail.
 
-## Verify
+## Development checks
 
 ```bash
 .venv/bin/python -m pip install -r requirements-dev.txt
@@ -61,14 +59,11 @@ Generated textures may be wrong even when the image looks sharper.
 node --check static/uploads.js
 ```
 
-The request tests inject only the costly inference boundary. They exercise real
-multipart parsing, Pillow decoding, storage, HTTP responses and PNG output. The
-real-model smoke uses the unchanged checkpoint on a 2×2 input and checks an 8×8
-RGB result; it skips explicitly if PyTorch is not installed. The maintenance run
-also verified the actual CPU model. This is a compatibility check, not a model
-accuracy benchmark or live browser test.
+Request tests replace inference with a test function while exercising multipart
+parsing, Pillow decoding, storage, HTTP responses and PNG output. A separate
+smoke test loads the bundled model, upscales a 2×2 image and checks the 8×8 RGB
+result; it skips if PyTorch is unavailable.
 
-`POST /upload` now returns JSON with `job_id`, `input` and `result` URLs. Existing
-listing routes return JSON arrays of generated job paths. Raw client-filename
-URLs are replaced by `/uploads/<job>/input.png` and `/results/<job>/output.png`.
-The page uses these APIs; no credentials or external model service are needed.
+`POST /upload` returns JSON with `job_id`, `input` and `result` URLs. Listing
+routes return arrays of generated job paths. Images are served at
+`/uploads/<job>/input.png` and `/results/<job>/output.png`.

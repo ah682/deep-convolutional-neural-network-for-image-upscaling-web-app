@@ -1,8 +1,7 @@
 # Pretrained model and upstream code
 
-This project integrates a pretrained ESRGAN into Flask. It does not implement a
-new super-resolution architecture, train the bundled model or reproduce the
-upstream paper's benchmarks.
+This project adds a Flask upload and comparison interface to a pretrained ESRGAN
+model. It uses the upstream architecture and checkpoint for 4× inference.
 
 The architecture in `RRDBNet_arch.py`, interpolation/conversion helpers and the
 original tensor preprocessing follow [Xintao Wang and collaborators' ESRGAN
@@ -12,26 +11,22 @@ repository](https://github.com/xinntao/ESRGAN). Upstream identifies the work as
 [upstream inference example](https://github.com/xinntao/ESRGAN/blob/master/test.py)
 and [architecture](https://github.com/xinntao/ESRGAN/blob/master/RRDBNet_arch.py).
 
-The bundled `RRDB_ESRGAN_x4.pth` was already present in this repository. It remains
-unchanged in this repair; its SHA-256 is
+The bundled `RRDB_ESRGAN_x4.pth` is unchanged from the original repository. Its SHA-256 is
 `65fece06e1ccb48853242aa972bdf00ad07a7dd8938d2dcbdf4221b59f6372ce`.
-That identifies these bytes; it does not independently authenticate the original
-checkpoint download. Upstream links pretrained model downloads in its README.
-Only the trusted bundled checksum is accepted by the local app.
-`RRDBNet_arch.py` also remains unchanged (SHA-256
+The original download source was not recorded. Upstream links pretrained models
+in its README; the app accepts only the bundled checksum above.
+`RRDBNet_arch.py` is also unchanged (SHA-256
 `0ef92981019fe1527e2570faebaee29c28bdee14094603bd963cd6651a456153`).
 
 Upstream publishes its repository under
 [Apache-2.0](https://github.com/xinntao/ESRGAN/blob/master/LICENSE); a copy is retained
 in [licenses/ESRGAN-Apache-2.0.txt](licenses/ESRGAN-Apache-2.0.txt). This attribution
-covers upstream-derived material; it does not grant a new project-wide license
-for separately authored application/UI files. No project-wide license was present
-at the repair baseline. Existing image assets and footer credits are retained;
-their provenance has not been independently established by this repair.
+covers the upstream-derived code. Separately authored application/UI files have
+no project-wide licence. Existing image assets and footer credits are retained,
+but their source and reuse terms have not been established.
 
-The web integration changes in this repair are generated job storage, bounded
-Pillow decoding, lazy CPU inference loading and explicit error handling. RGB
-normalization, the 23-block RRDB architecture and 4× scale remain the existing
-model path. Generated texture can be plausible but incorrect; output is not
-recovered ground truth. Neither synthetic tests nor a tiny CPU smoke establish
-quality on user photos, OCR evidence, faces or scientific/forensic material.
+The web app uses generated job directories, input-size checks, lazy CPU model
+loading and per-request error handling. RGB normalization, the 23-block RRDB
+architecture and 4× scale follow the existing inference path. The tests check
+integration and output shape; this project has not measured image quality or
+reproduced the paper's benchmarks.
